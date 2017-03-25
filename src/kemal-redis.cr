@@ -12,7 +12,9 @@ class HTTP::Request
   property redis
 end
 
-class Kemal::Redis < HTTP::Handler
+class Kemal::Redis
+  include HTTP::Handler
+
   def initialize(host=nil, port=nil)
     @redis ||= ::Redis.new
   end
